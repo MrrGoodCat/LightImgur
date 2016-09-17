@@ -26,5 +26,35 @@ namespace LightImgur.Properties
                 return defaultInstance;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string accessToken
+        {
+            get
+            {
+                return ((string)(this["accessToken"]));
+            }
+            set
+            {
+                this["accessToken"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string refreshToken
+        {
+            get
+            {
+                return ((string)(this["refreshToken"]));
+            }
+            set
+            {
+                this["refreshToken"] = value;
+            }
+        }
     }
 }
