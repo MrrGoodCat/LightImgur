@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using Newtonsoft.Json;
+using Imgur.API.Authentication.Impl;
+using Imgur.API.Endpoints.Impl;
 
 namespace LightImgur
 {
@@ -256,6 +258,12 @@ namespace LightImgur
             Properties.Settings.Default.accessToken = CurrentAccessToken;
             Properties.Settings.Default.refreshToken = CurrentRefreshToken;
             Properties.Settings.Default.Save();
+        }
+        public async void GetImageFromAlbum()
+        {
+            var client = new ImgurClient("59b901759d20a52");
+            var endpoint = new AlbumEndpoint(client);
+            var image = await endpoint.GetAlbumImageAsync("buW", "ALBUM_ID");
         }
     }
 }
