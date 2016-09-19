@@ -10,6 +10,8 @@
         <TextBox x:Name="textBoxPing" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
         <Button x:Name="buttonGetToken" Content="Submit" HorizontalAlignment="Left" Margin="135,11,0,0" VerticalAlignment="Top" Width="75" Click="buttonGetToken_Click" IsEnabled="False"/>
         <Button x:Name="buttonRegisterApp" Content="App Registration" HorizontalAlignment="Left" Margin="414,10,0,0" VerticalAlignment="Top" Width="93" Click="buttonRegisterApp_Click"/>
+        <Label x:Name="lableAccessToken" Content="Access" HorizontalAlignment="Left" Margin="52,81,0,0" VerticalAlignment="Top" Width="408"/>
+        <Label x:Name="labelRefreshToken" Content="Refresh" HorizontalAlignment="Left" Margin="52,107,0,0" VerticalAlignment="Top" Width="408"/>
 
     </Grid>
 </Window>

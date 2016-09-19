@@ -34,13 +34,17 @@ namespace LightImgur
             textBoxPing.IsEnabled = false;
             buttonGetToken.IsEnabled = false;
             textBoxPing.Text = "";
+            lableAccessToken.Content = ImgurAPI.CurrentAccessToken;
+            labelRefreshToken.Content = ImgurAPI.CurrentRefreshToken;
+            
         }
 
         private void buttonRegisterApp_Click(object sender, RoutedEventArgs e)
         {
-            imgurApi.OpenAuthorizationPage();
-            textBoxPing.IsEnabled = true;
-            buttonGetToken.IsEnabled = true;
+            //imgurApi.OpenAuthorizationPage();
+            //textBoxPing.IsEnabled = true;
+            //buttonGetToken.IsEnabled = true;
+            imgurApi.GetGallery();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -12,6 +12,8 @@ namespace LightImgur
 {
     public class ImgurAPI
     {
+        ReceivedData<IEnumerable<Imgur.API.Models.IGalleryItem>> DataFromImgur;
+
 
         static private string EndPoint = "https://api.imgur.com/3/";
        
@@ -20,8 +22,8 @@ namespace LightImgur
        
         static private int NumUploads = 0;
         
-        static private string CurrentAccessToken = string.Empty;
-        static private string CurrentRefreshToken = string.Empty;
+        static public string CurrentAccessToken = string.Empty;
+        static public string CurrentRefreshToken = string.Empty;
         static private DateTime TokensExpireAt = DateTime.MinValue;
         
         static private System.Threading.Thread tokenThread = null;
@@ -39,6 +41,7 @@ namespace LightImgur
         public ImgurAPI()
         {
             Log = new Log();
+            DataFromImgur = new ReceivedData<IEnumerable<Imgur.API.Models.IGalleryItem>>();
         }
         public void OpenAuthorizationPage()
         {
@@ -261,9 +264,19 @@ namespace LightImgur
         }
         public async void GetImageFromAlbum()
         {
+
             var client = new ImgurClient("59b901759d20a52");
             var endpoint = new AlbumEndpoint(client);
             var image = await endpoint.GetAlbumImageAsync("buW", "ALBUM_ID");
         }
+
+        public async void GetGallery()
+        {
+            var client = new ImgurClient("59b901759d20a52");
+            var endpoint = new GalleryEndpoint(client);
+            var gallery = await endpoint.GetGalleryAsync();
+            DataFromImgur.Gallery.Add(gallery);
+        }
+
     }
 }
